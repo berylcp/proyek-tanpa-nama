@@ -174,76 +174,29 @@ header {
   font-size: 1.125rem;
 }
 
-/* Hero */
-.container--hero {
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero {
-  width: 100%;
-  height: 100vh;
-  background: var(--primary-color--4);
-}
-
-.hero__main {
-  order: 1;
-  text-align: center;
-  color: var(--primary-color--1);
-}
-
-.hero__main h1 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-}
-
-.hero__main p {
-  margin: 1em 0;
-  font-weight: 600;
-}
-
-.hero__main p::first-letter {
-  text-transform: capitalize;
-}
-
-.hero__main a {
-  display: inline-block;
-  padding: 0.5em 1.5em;
-  background-color: var(--primary-color--1);
-  border-radius: 20px;
-  text-decoration: none;
-  color: var(--primary-color--4);
-  text-transform: capitalize;
-}
-
-.hero__secondary {
-  margin-bottom: 1em;
-}
-
 /* Main */
 main {
   padding: 2em 0;
 }
 
-.article--recent + .article--recent {
+article + article {
   margin-top: 2em;
 }
 
-.article--recent,
-.article--recent__main,
+article,
+.article__main,
 .main__author,
-.article--recent__secondary {
+.article__secondary {
   display: flex;
 }
 
-.article--recent,
-.article--recent__main,
-.article--recent__secondary {
+article,
+.article__main,
+.article__secondary {
   flex-direction: column;
 }
 
-.article--recent__main {
+.article__main {
   margin-bottom: 0.5em;
 }
 
@@ -262,16 +215,16 @@ main {
   font-weight: 600;
 }
 
-.article--recent__main h3 {
+.article__main h3 {
   font-weight: 700;
   font-size: 1.125rem;
 }
 
-.article--recent__main > p {
+.article__main > p {
   margin: 1em 0;
 }
 
-.article--recent__main > span {
+.article__main > span {
   font-size: 0.75rem;
   color: var(--secondary-color--1);
   text-transform: capitalize;
@@ -280,51 +233,50 @@ main {
 /* Aside */
 aside {
   padding: 2em 0;
+  order: -1;
 }
 
-aside h2 {
+.sidebar__main {
+  margin-bottom: 4em;
+}
+
+.sidebar__main input[type="search"] {
+  width: 100%;
+  padding: 0.625em 1em 0.625em 2.5em;
+  background: transparent
+    url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' id='Outline' viewBox='0 0 24 24' width='16' height='16'%3E%3Cpath d='M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z'/%3E%3C/svg%3E%0A")
+    no-repeat 0.625em center;
+  border: 1px solid var(--secondary-color--2);
+  border-radius: 20px;
+}
+
+.sidebar__main input[type="search"]:focus {
+  outline: none;
+  box-shadow: 0 0 3px 0 var(--secondary-color--1);
+}
+
+.sidebar__secondary h2 {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 0.875rem;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
-.article--trending + .article--trending {
-  margin-top: 2em;
-}
-
-.article--trending,
-.article--trending__main {
+.recommended-categories {
   display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
-.article--trending {
-  flex-direction: column;
-}
-
-.article--trending__main {
-  align-items: center;
-}
-
-.article--trending__main img {
-  width: 8%;
-  margin-right: 0.5em;
-}
-
-.article--trending__main p {
-  text-transform: capitalize;
+.category__card {
+  display: inline-block;
+  border: 1px solid var(--secondary-color--2);
+  color: var(--primary-color--4);
   font-weight: 600;
-}
-
-.article--trending__secondary h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0.5em 0;
-}
-
-.article--trending__secondary p {
-  font-weight: 400;
-  color: var(--secondary-color--1);
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 0.375em 1em;
+  border-radius: 20px;
 }
 
 /* Footer */
@@ -398,29 +350,24 @@ footer p {
     font-size: 0.875rem;
   }
 
-  /* Hero */
-  .hero__main {
-    order: 0;
-    text-align: left;
-    width: 55%;
-  }
-
-  .hero__secondary {
-    width: 40%;
-  }
-
   /* Main */
   main {
     width: 65%;
   }
 
-  .article--recent {
+  article {
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
   }
 
-  .article--recent__main {
+  .article__main {
     margin-bottom: 0;
+    width: 65%;
+  }
+
+  .article__secondary {
+    width: 30%;
   }
 
   .main__author img {
@@ -430,10 +377,9 @@ footer p {
   /* Aside */
   aside {
     width: 30%;
-  }
-
-  aside h2 {
-    margin-bottom: 1em;
+    order: 1;
+    border-left: 1px solid var(--secondary-color--2);
+    padding-left: 2em;
   }
 
   /* Footer */
